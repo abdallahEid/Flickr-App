@@ -80,12 +80,15 @@
 			isa = PBXGroup;
 			children = (
 				BB9583D322BC4110009F16F1 /* AppDelegate.swift */,
-				BB9583D522BC4110009F16F1 /* ViewController.swift */,
-				BB9583D722BC4110009F16F1 /* Main.storyboard */,
-				BB9583DD22BC4111009F16F1 /* Assets.xcassets */,
-				BB9583DF22BC4111009F16F1 /* LaunchScreen.storyboard */,
+				BB9583FD22BC443C009F16F1 /* DataSource */,
+				BB9583FC22BC4430009F16F1 /* Model */,
+				BB9583FB22BC4429009F16F1 /* Storyboards */,
+				BB9583FA22BC4421009F16F1 /* View */,
+				BB9583F922BC440F009F16F1 /* ViewController */,
+				BB9583F822BC43F8009F16F1 /* Presenter */,
+				BB9583F622BC43CA009F16F1 /* Extensions */,
+				BB9583F722BC43D9009F16F1 /* Assets */,
 				BB9583E222BC4111009F16F1 /* Info.plist */,
-				BB9583DA22BC4110009F16F1 /* Flickr_App.xcdatamodeld */,
 			);
 			path = "Flickr-App";
 			sourceTree = "<group>";
@@ -97,6 +100,67 @@
 				BB9583ED22BC4111009F16F1 /* Info.plist */,
 			);
 			path = "Flickr-AppTests";
+			sourceTree = "<group>";
+		};
+		BB9583F622BC43CA009F16F1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BB9583F722BC43D9009F16F1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BB9583DD22BC4111009F16F1 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		BB9583F822BC43F8009F16F1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BB9583F922BC440F009F16F1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BB9583D522BC4110009F16F1 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BB9583FA22BC4421009F16F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB9583FB22BC4429009F16F1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BB9583D722BC4110009F16F1 /* Main.storyboard */,
+				BB9583DF22BC4111009F16F1 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BB9583FC22BC4430009F16F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB9583DA22BC4110009F16F1 /* Flickr_App.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BB9583FD22BC443C009F16F1 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
