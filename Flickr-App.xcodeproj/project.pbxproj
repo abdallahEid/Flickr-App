@@ -19,6 +19,12 @@
 		BB95840322BC5617009F16F1 /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95840222BC5617009F16F1 /* ViewController+TableView.swift */; };
 		BB95840822BC5DD4009F16F1 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95840622BC5DD4009F16F1 /* GroupTableViewCell.swift */; };
 		BB95840922BC5DD4009F16F1 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB95840722BC5DD4009F16F1 /* GroupTableViewCell.xib */; };
+		BB95840B22BC67BF009F16F1 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95840A22BC67BF009F16F1 /* Image.swift */; };
+		BB95840D22BC683A009F16F1 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95840C22BC683A009F16F1 /* Group.swift */; };
+		BB95840F22BC688F009F16F1 /* ImagesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95840E22BC688F009F16F1 /* ImagesServices.swift */; };
+		BB95841122BC689C009F16F1 /* GroupServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95841022BC689C009F16F1 /* GroupServices.swift */; };
+		BB95841322BC6FBC009F16F1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95841222BC6FBC009F16F1 /* APIClient.swift */; };
+		BB95841522BC7049009F16F1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95841422BC7049009F16F1 /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,12 @@
 		BB95840222BC5617009F16F1 /* ViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
 		BB95840622BC5DD4009F16F1 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		BB95840722BC5DD4009F16F1 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
+		BB95840A22BC67BF009F16F1 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		BB95840C22BC683A009F16F1 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		BB95840E22BC688F009F16F1 /* ImagesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesServices.swift; sourceTree = "<group>"; };
+		BB95841022BC689C009F16F1 /* GroupServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupServices.swift; sourceTree = "<group>"; };
+		BB95841222BC6FBC009F16F1 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		BB95841422BC7049009F16F1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				BB9583D322BC4110009F16F1 /* AppDelegate.swift */,
-				BB9583FD22BC443C009F16F1 /* DataSource */,
 				BB9583FC22BC4430009F16F1 /* Model */,
+				BB9583FD22BC443C009F16F1 /* DataSource */,
 				BB9583FB22BC4429009F16F1 /* Storyboards */,
 				BB9583FA22BC4421009F16F1 /* View */,
 				BB9583F922BC440F009F16F1 /* ViewController */,
@@ -164,6 +176,9 @@
 		BB9583FC22BC4430009F16F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BB95841422BC7049009F16F1 /* HTTPMethod.swift */,
+				BB95840A22BC67BF009F16F1 /* Image.swift */,
+				BB95840C22BC683A009F16F1 /* Group.swift */,
 				BB9583DA22BC4110009F16F1 /* Flickr_App.xcdatamodeld */,
 			);
 			path = Model;
@@ -172,6 +187,9 @@
 		BB9583FD22BC443C009F16F1 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				BB95841222BC6FBC009F16F1 /* APIClient.swift */,
+				BB95840E22BC688F009F16F1 /* ImagesServices.swift */,
+				BB95841022BC689C009F16F1 /* GroupServices.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -297,10 +315,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB95840B22BC67BF009F16F1 /* Image.swift in Sources */,
 				BB9583DC22BC4110009F16F1 /* Flickr_App.xcdatamodeld in Sources */,
+				BB95840F22BC688F009F16F1 /* ImagesServices.swift in Sources */,
 				BB9583D622BC4110009F16F1 /* ViewController.swift in Sources */,
+				BB95840D22BC683A009F16F1 /* Group.swift in Sources */,
+				BB95841322BC6FBC009F16F1 /* APIClient.swift in Sources */,
 				BB95840022BC54E3009F16F1 /* ImageTableViewCell.swift in Sources */,
 				BB95840822BC5DD4009F16F1 /* GroupTableViewCell.swift in Sources */,
+				BB95841522BC7049009F16F1 /* HTTPMethod.swift in Sources */,
+				BB95841122BC689C009F16F1 /* GroupServices.swift in Sources */,
 				BB95840322BC5617009F16F1 /* ViewController+TableView.swift in Sources */,
 				BB9583D422BC4110009F16F1 /* AppDelegate.swift in Sources */,
 			);

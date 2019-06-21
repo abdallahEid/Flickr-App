@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         // There is an extension for table in Extensions Folder
         configureTableView()
         determineTableCell(type: "ImageTableViewCell")
+    
     }
 
     // MARK: Actions & Functions 
