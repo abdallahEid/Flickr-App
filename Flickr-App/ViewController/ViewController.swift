@@ -10,10 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: Outlets & Properties
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    // MARK: View Controller LifeCycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // There is an extension for table in Extensions Folder
+        configureTableView()
+        determineTableCell(type: "ImageTableViewCell")
+    }
+
+    // MARK: Actions & Functions 
+
     @IBAction func segmentedControlChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex
         {
@@ -25,13 +39,6 @@ class ViewController: UIViewController {
             break
         }
         tableView.reloadData()
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // There is an extension for table in Extensions Folder
-        configureTableView()
-        determineTableCell(type: "ImageTableViewCell")
     }
 
 }

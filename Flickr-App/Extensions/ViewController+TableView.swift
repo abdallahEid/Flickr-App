@@ -32,7 +32,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if segmentedControl.selectedSegmentIndex == 0 { // ImageTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
-            
             cell.selectionStyle = .none
             //            cell.flickerImageView =
             
@@ -40,13 +39,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTableViewCell") as! GroupTableViewCell
-        
         cell.selectionStyle = .none
         cell.groupNameLabel.text = "Flickrs"
         cell.memberNumberLabel.text = "20"
         
         return cell
-        
     }
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
