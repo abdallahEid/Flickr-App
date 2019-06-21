@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Images-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Flickr_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2CZ-FC-atY">
+                                <rect key="frame" x="0.0" y="128" width="414" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ycV-x0-3rN">
+                                <rect key="frame" x="16" y="44" width="382" height="29"/>
+                                <segments>
+                                    <segment title="Images"/>
+                                    <segment title="Groups"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="PzM-p8-xeM"/>
+                                </connections>
+                            </segmentedControl>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="325-7Q-GKt">
+                                <rect key="frame" x="0.0" y="72" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2CZ-FC-atY" secondAttribute="trailing" id="2My-al-wcF"/>
+                            <constraint firstItem="325-7Q-GKt" firstAttribute="top" secondItem="ycV-x0-3rN" secondAttribute="bottom" id="BWH-N3-5iZ"/>
+                            <constraint firstItem="2CZ-FC-atY" firstAttribute="top" secondItem="325-7Q-GKt" secondAttribute="bottom" id="Rfs-RN-58a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2CZ-FC-atY" secondAttribute="bottom" id="VJv-Pf-nl7"/>
+                            <constraint firstItem="325-7Q-GKt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XBg-do-NUl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ycV-x0-3rN" secondAttribute="trailing" constant="16" id="fTN-GD-hUi"/>
+                            <constraint firstItem="325-7Q-GKt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gZ6-mH-Eky"/>
+                            <constraint firstItem="2CZ-FC-atY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hDj-U5-wJH"/>
+                            <constraint firstItem="ycV-x0-3rN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ugj-DH-HuT"/>
+                            <constraint firstItem="ycV-x0-3rN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="xLe-qF-aD3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Images" id="CZv-pb-Xbd"/>
+                    <connections>
+                        <outlet property="searchBar" destination="325-7Q-GKt" id="nrs-hU-0pB"/>
+                        <outlet property="segmentedControl" destination="ycV-x0-3rN" id="iE4-M5-nSz"/>
+                        <outlet property="tableView" destination="2CZ-FC-atY" id="FUM-86-GIf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="782.60869565217399" y="529.6875"/>
         </scene>
     </scenes>
 </document>
