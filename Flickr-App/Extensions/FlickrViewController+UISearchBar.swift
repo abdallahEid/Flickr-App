@@ -24,13 +24,15 @@ extension FlickrViewController: UISearchBarDelegate{
     // MARK: Delegate Functions
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let text = searchBar.text{
-            if selectedTab == "images" {
-                presenter.getImages(text: text, page: page)
-            } else {
-                presenter.getGroups(text: text, page: page)
+        if let text = searchBar.text {
+            if text != "" {
+                if selectedTab == "images" {
+                    presenter.getImages(text: text, page: 1)
+                } else {
+                    presenter.getGroups(text: text, page: 1)
+                }
+                self.view.endEditing(true)
             }
-            self.view.endEditing(true)
         }
     }
 }

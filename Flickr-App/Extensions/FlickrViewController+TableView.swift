@@ -73,13 +73,13 @@ extension FlickrViewController: UITableViewDelegate, UITableViewDataSource {
         let lastImage = presenter.getImagesCount() - 1
         let lastGroup = presenter.getGroupsCount() - 1
 
-        if indexPath.row == lastImage && selectedTab == "images"{
+        if indexPath.row == lastImage && lastImage > 10 && selectedTab == "images"{
             page += 1
             if let text = searchBar.text{
                 presenter.getImages(text: text, page: page)
             }
         }
-        if indexPath.row == lastGroup && selectedTab == "groups"{
+        if indexPath.row == lastGroup && lastGroup > 10 && selectedTab == "groups"{
             page += 1
             if let text = searchBar.text{
                 presenter.getGroups(text: text, page: page)

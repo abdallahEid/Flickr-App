@@ -154,8 +154,8 @@
 		BB9583F622BC43CA009F16F1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BB95840222BC5617009F16F1 /* FlickrViewController+TableView.swift */,
 				BB510B1422BD94E1008FB0B8 /* FlickrViewController+PresenterDelegate.swift */,
+				BB95840222BC5617009F16F1 /* FlickrViewController+TableView.swift */,
 				BB510B1622BDB4BC008FB0B8 /* FlickrViewController+UISearchBar.swift */,
 			);
 			path = Extensions;

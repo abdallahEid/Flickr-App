@@ -16,6 +16,7 @@ class FlickrViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var noResultsLabel: UILabel!
     
     var presenter: FlickrViewControllerPresenter!
     var selectedTab: String = "images"

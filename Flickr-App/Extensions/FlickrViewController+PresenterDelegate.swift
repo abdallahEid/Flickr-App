@@ -38,4 +38,16 @@ extension FlickrViewController: FlickrViewDelegate{
         print(error)
     }
     
+    func hideResultLabel() {
+        DispatchQueue.main.async {
+            self.noResultsLabel.isHidden = true
+        }
+    }
+    
+    func showResultLabel() {
+        DispatchQueue.main.async {
+            self.noResultsLabel.isHidden = false
+        }
+    }
+    
 }

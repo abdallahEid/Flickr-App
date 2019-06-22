@@ -22,6 +22,12 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feel free to search for something " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oi-yF-AW0">
+                                <rect key="frame" x="16" y="412" width="382" height="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ycV-x0-3rN">
                                 <rect key="frame" x="16" y="44" width="382" height="29"/>
                                 <segments>
@@ -42,12 +48,15 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2CZ-FC-atY" secondAttribute="trailing" id="2My-al-wcF"/>
                             <constraint firstItem="325-7Q-GKt" firstAttribute="top" secondItem="ycV-x0-3rN" secondAttribute="bottom" id="BWH-N3-5iZ"/>
+                            <constraint firstItem="9oi-yF-AW0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Bri-v1-uCE"/>
+                            <constraint firstItem="9oi-yF-AW0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GIR-da-Lcg"/>
                             <constraint firstItem="2CZ-FC-atY" firstAttribute="top" secondItem="325-7Q-GKt" secondAttribute="bottom" id="Rfs-RN-58a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2CZ-FC-atY" secondAttribute="bottom" id="VJv-Pf-nl7"/>
                             <constraint firstItem="325-7Q-GKt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XBg-do-NUl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ycV-x0-3rN" secondAttribute="trailing" constant="16" id="fTN-GD-hUi"/>
                             <constraint firstItem="325-7Q-GKt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gZ6-mH-Eky"/>
                             <constraint firstItem="2CZ-FC-atY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hDj-U5-wJH"/>
+                            <constraint firstAttribute="trailing" secondItem="9oi-yF-AW0" secondAttribute="trailing" constant="16" id="saE-pT-Qep"/>
                             <constraint firstItem="ycV-x0-3rN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ugj-DH-HuT"/>
                             <constraint firstItem="ycV-x0-3rN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="xLe-qF-aD3"/>
                         </constraints>
@@ -55,6 +64,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Images" id="CZv-pb-Xbd"/>
                     <connections>
+                        <outlet property="noResultsLabel" destination="9oi-yF-AW0" id="KhZ-Ay-4jY"/>
                         <outlet property="searchBar" destination="325-7Q-GKt" id="nrs-hU-0pB"/>
                         <outlet property="segmentedControl" destination="ycV-x0-3rN" id="iE4-M5-nSz"/>
                         <outlet property="tableView" destination="2CZ-FC-atY" id="FUM-86-GIf"/>

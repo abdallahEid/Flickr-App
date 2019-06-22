@@ -14,6 +14,8 @@ protocol FlickrViewDelegate: class{
     func dismissIndicator()
     func fetchingDataSuccessfully()
     func showError(error: String)
+    func hideResultLabel()
+    func showResultLabel()
 }
 
 protocol ImageTableViewCellDelegate {
@@ -51,7 +53,16 @@ class FlickrViewControllerPresenter {
                 return
             }
             
-            self.images += images
+            if images.count > 0 {
+                self.delegate?.hideResultLabel()
+            } else {
+                self.delegate?.showResultLabel()
+            }
+            if page == 1 {
+                self.images = images
+            } else {
+                self.images += images
+            }
             self.delegate?.fetchingDataSuccessfully()
             
         }
@@ -75,7 +86,17 @@ class FlickrViewControllerPresenter {
                 return
             }
             
-            self.groups += groups
+            if groups.count > 0 {
+                self.delegate?.hideResultLabel()
+            } else {
+                self.delegate?.showResultLabel()
+            }
+            
+            if page == 1 {
+                self.groups = groups
+            } else {
+                self.groups += groups
+            }
             self.delegate?.fetchingDataSuccessfully()
             
         }
@@ -97,4 +118,5 @@ class FlickrViewControllerPresenter {
         cell.displayGroupName(name: groups[index].name)
         cell.displayGroupMembersNumber(number: groups[index].members)
     }
+    
 }
