@@ -16,7 +16,7 @@ class APIClient {
     func clientURLRequest(url: URL, method: HTTPMethod, jsonData: Data? = nil, ParametersForGetRequests : [String:String]? = nil, completionHandler: @escaping ( Data?, Error?) -> ()){
         
         os_log("clientURLRequest function in APIClient is called", log: OSLog.default, type: .info)
-
+        
         // url
         var request = URLRequest(url: url)
         

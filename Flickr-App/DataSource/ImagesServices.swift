@@ -55,6 +55,7 @@ class ImagesServices {
                                 let images = try decoder.decode([Image].self, from: data)
                                 completionHandler(images,nil)
                             }catch {
+                                os_log("%@", log: OSLog.default, type: .error, error.localizedDescription)
                                 completionHandler(nil,error)
                                 return
                             }
@@ -62,6 +63,7 @@ class ImagesServices {
                     }
                 }
             } catch {
+                os_log("%@", log: OSLog.default, type: .error, error.localizedDescription)
                 completionHandler(nil,error)
             }
         }

@@ -49,6 +49,7 @@ class GroupServices {
                                 let groups = try decoder.decode([Group].self, from: data)
                                 completionHandler(groups,nil)
                             }catch {
+                                os_log("%@", log: OSLog.default, type: .error, error.localizedDescription)
                                 completionHandler(nil,error)
                                 return
                             }
@@ -56,6 +57,7 @@ class GroupServices {
                     }
                 }
             } catch {
+                os_log("%@", log: OSLog.default, type: .error, error.localizedDescription)
                 completionHandler(nil,error)
             }
             
