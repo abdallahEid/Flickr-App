@@ -22,9 +22,9 @@ extension FlickrViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text{
             if selectedTab == "images" {
-                presenter.getImages(text: text)
+                presenter.getImages(text: text, page: page)
             } else {
-                presenter.getGroups(text: text)
+                presenter.getGroups(text: text, page: page)
             }
             self.view.endEditing(true)
         }

@@ -17,7 +17,8 @@ class FlickrViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var presenter: FlickrViewControllerPresenter!
-    var selectedTab: String = "Images"
+    var selectedTab: String = "images"
+    var page: Int = 0
     
     // MARK: View Controller LifeCycle
     
@@ -46,7 +47,6 @@ class FlickrViewController: UIViewController {
         default:
             break
         }
-        searchBar.text = ""
         tableView.reloadData()
     }
 

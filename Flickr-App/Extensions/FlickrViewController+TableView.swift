@@ -61,4 +61,22 @@ extension FlickrViewController: UITableViewDelegate, UITableViewDataSource {
         self.view.endEditing(true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastImage = presenter.getImagesCount() - 1
+        let lastGroup = presenter.getGroupsCount() - 1
+
+        if indexPath.row == lastImage && selectedTab == "images"{
+            page += 1
+            if let text = searchBar.text{
+                presenter.getImages(text: text, page: page)
+            }
+        }
+        if indexPath.row == lastGroup && selectedTab == "groups"{
+            page += 1
+            if let text = searchBar.text{
+                presenter.getGroups(text: text, page: page)
+            }
+        }
+    }
+    
 }

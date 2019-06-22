@@ -12,14 +12,14 @@ class ImagesServices {
     
     enum Endpoints {
     
-        case searchImages(String)
+        case searchImages(String, Int)
         case getImage(Image)
         
         var stringValue: String {
             switch self {
                 
-            case .searchImages(let text):
-                return "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(APIClient.apiKey)&text=\(text)&format=json&nojsoncallback=1"
+            case .searchImages(let text, let page):
+                return "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(APIClient.apiKey)&text=\(text)&per_page=50&page=\(page)&format=json&nojsoncallback=1"
 
             case .getImage(let image):
                 return "https://farm\(image.farm).staticflickr.com/\(image.server)/\(image.id)_\(image.secret).jpg"
@@ -31,9 +31,9 @@ class ImagesServices {
         }
     }
     
-    func searchImages(text: String, completionHandler: @escaping ([Image]?, Error?)-> ()){
+    func searchImages(text: String, page: Int, completionHandler: @escaping ([Image]?, Error?)-> ()){
         
-        APIClient.sharedInstance().clientURLRequest(url: Endpoints.searchImages(text).url, method: .get) { (data, error) in
+        APIClient.sharedInstance().clientURLRequest(url: Endpoints.searchImages(text,page).url, method: .get) { (data, error) in
             guard let data = data else {
                 completionHandler(nil,error)
                 return

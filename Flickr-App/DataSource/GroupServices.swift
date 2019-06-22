@@ -11,13 +11,13 @@ import Foundation
 class GroupServices {
     enum Endpoints {
         
-        case searchGroups(String)
+        case searchGroups(String, Int)
         
         var stringValue: String {
             switch self {
                 
-            case .searchGroups(let text):
-                return "https://www.flickr.com/services/rest/?method=flickr.groups.search&api_key=\(APIClient.apiKey)&text=\(text)&format=json&nojsoncallback=1"
+            case .searchGroups(let text, let page):
+                return "https://www.flickr.com/services/rest/?method=flickr.groups.search&api_key=\(APIClient.apiKey)&text=\(text)&per_page=50&page=\(page)&format=json&nojsoncallback=1"
             }
         }
         
@@ -26,9 +26,9 @@ class GroupServices {
         }
     }
     
-    func searchGroups(text: String, completionHandler: @escaping ([Group]?, Error?)-> ()){
+    func searchGroups(text: String, page: Int, completionHandler: @escaping ([Group]?, Error?)-> ()){
         
-        APIClient.sharedInstance().clientURLRequest(url: Endpoints.searchGroups(text).url, method: .get) { (data, error) in
+        APIClient.sharedInstance().clientURLRequest(url: Endpoints.searchGroups(text, page).url, method: .get) { (data, error) in
             guard let data = data else {
                 completionHandler(nil,error)
                 return

@@ -37,9 +37,9 @@ class FlickrViewControllerPresenter {
         self.delegate = delegate
     }
     
-    func getImages(text: String){
+    func getImages(text: String, page: Int){
         delegate?.showIndicator()
-        imageServices.searchImages(text: text) { (images, error) in
+        imageServices.searchImages(text: text, page: page) { (images, error) in
             self.delegate?.dismissIndicator()
             guard let images = images else {
                 if let error = error {
@@ -48,7 +48,7 @@ class FlickrViewControllerPresenter {
                 return
             }
             
-            self.images = images
+            self.images += images
             self.delegate?.fetchingDataSuccessfully()
             
         }
@@ -58,9 +58,9 @@ class FlickrViewControllerPresenter {
         return images.count
     }
     
-    func getGroups(text: String){
+    func getGroups(text: String, page: Int){
         delegate?.showIndicator()
-        groupServices.searchGroups(text: text) { (groups, error) in
+        groupServices.searchGroups(text: text, page: page) { (groups, error) in
             self.delegate?.dismissIndicator()
             guard let groups = groups else {
                 if let error = error {
@@ -69,7 +69,7 @@ class FlickrViewControllerPresenter {
                 return
             }
             
-            self.groups = groups
+            self.groups += groups
             self.delegate?.fetchingDataSuccessfully()
             
         }
