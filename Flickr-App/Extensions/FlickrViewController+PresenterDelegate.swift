@@ -35,6 +35,8 @@ extension FlickrViewController: FlickrViewDelegate{
     func showError(error: String) {
         os_log("showError function in FlickrViewController+PresenterDelegate extension is called", log: OSLog.default, type: .info)
         
+        os_log("%@", log: OSLog.default, type: .error, error)
+        
         print(error)
     }
     
