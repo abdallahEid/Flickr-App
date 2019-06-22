@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os
 
 class GroupServices {
     enum Endpoints {
@@ -27,7 +28,8 @@ class GroupServices {
     }
     
     func searchGroups(text: String, page: Int, completionHandler: @escaping ([Group]?, Error?)-> ()){
-        
+        os_log("searchGroups function in GroupServices is called", log: OSLog.default, type: .info)
+
         APIClient.sharedInstance().clientURLRequest(url: Endpoints.searchGroups(text, page).url, method: .get) { (data, error) in
             guard let data = data else {
                 completionHandler(nil,error)
@@ -62,6 +64,8 @@ class GroupServices {
     }
     
     class func sharedInstance() -> GroupServices {
+        os_log("sharedInstance function in GroupServices is called", log: OSLog.default, type: .info)
+
         struct singleton {
             static let sharedInstance = GroupServices()
         }

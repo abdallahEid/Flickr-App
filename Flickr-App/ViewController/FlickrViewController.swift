@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 
 class FlickrViewController: UIViewController {
 
@@ -25,17 +26,21 @@ class FlickrViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        os_log("viewDidLoad function in FlickrViewController is called", log: OSLog.default, type: .info)
+        
         // There is an extension for table in Extensions Folder
         configureTableView()
         configureSearchBar()
         determineTableCell(type: "ImageTableViewCell")
         presenter = FlickrViewControllerPresenter(delegate: self)
-    
     }
 
     // MARK: Actions & Functions 
 
     @IBAction func segmentedControlChanged(_ sender: Any) {
+        
+        os_log("segmented control change action in FlickrViewController is called", log: OSLog.default, type: .info)
+        
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:

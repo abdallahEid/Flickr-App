@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os 
 
 class GroupTableViewCell: UITableViewCell, GroupTableViewCellDelegate{
 
@@ -21,10 +22,14 @@ class GroupTableViewCell: UITableViewCell, GroupTableViewCellDelegate{
     }
     
     func displayGroupName(name: String) {
+        os_log("displayGroupName function in GroupTableViewCell view is called", log: OSLog.default, type: .info)
+        
         groupNameLabel.text = name
     }
     
     func displayGroupMembersNumber(number: String) {
+        os_log("displayGroupMembersNumber function in GroupTableViewCell view is called", log: OSLog.default, type: .info)
+        
         memberNumberLabel.text = number
     }
 }

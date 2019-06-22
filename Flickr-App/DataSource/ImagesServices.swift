@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os
 
 class ImagesServices {
     
@@ -33,6 +34,8 @@ class ImagesServices {
     
     func searchImages(text: String, page: Int, completionHandler: @escaping ([Image]?, Error?)-> ()){
         
+        os_log("searchImages function in ImagesServices is called", log: OSLog.default, type: .info)
+
         APIClient.sharedInstance().clientURLRequest(url: Endpoints.searchImages(text,page).url, method: .get) { (data, error) in
             guard let data = data else {
                 completionHandler(nil,error)
@@ -66,6 +69,8 @@ class ImagesServices {
     }
     
     class func sharedInstance() -> ImagesServices {
+        os_log("sharedInstance function in ImagesServices is called", log: OSLog.default, type: .info)
+
         struct singleton {
             static let sharedInstance = ImagesServices()
         }

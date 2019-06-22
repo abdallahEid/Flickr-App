@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import os
 
 class ImageTableViewCell: UITableViewCell, ImageTableViewCellDelegate {
 
@@ -20,6 +21,7 @@ class ImageTableViewCell: UITableViewCell, ImageTableViewCellDelegate {
     }
     
     func displayImage(url: String) {
+        os_log("displayImage function in ImageTableViewCell view is called", log: OSLog.default, type: .info)
         flickerImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: url))
     }
     

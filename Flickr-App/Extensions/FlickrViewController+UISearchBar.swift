@@ -8,12 +8,16 @@
 
 import Foundation
 import UIKit
+import os
 
 extension FlickrViewController: UISearchBarDelegate{
     
     // MARK: Functions
     
     func configureSearchBar(){
+        
+        os_log("configureSearchBar function in FlickrViewController+PresenterDelegate extension is called", log: OSLog.default, type: .info)
+        
         searchBar.delegate = self
     }
     

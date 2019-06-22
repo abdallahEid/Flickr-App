@@ -8,18 +8,25 @@
 
 import Foundation
 import UIKit
+import os
 
 extension FlickrViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Functions
     
     func configureTableView(){
+        
+        os_log("configureTableView function in FlickrViewController+TableView extension is called", log: OSLog.default, type: .info)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
     }
     
     func determineTableCell(type: String){
+        
+        os_log("determineTableCell function in FlickrViewController+TableView extension is called", log: OSLog.default, type: .info)
+        
         tableView.register(UINib(nibName: type, bundle: nil), forCellReuseIdentifier: type)
     }
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os
 
 class APIClient {
     
@@ -14,6 +15,8 @@ class APIClient {
 
     func clientURLRequest(url: URL, method: HTTPMethod, jsonData: Data? = nil, ParametersForGetRequests : [String:String]? = nil, completionHandler: @escaping ( Data?, Error?) -> ()){
         
+        os_log("clientURLRequest function in APIClient is called", log: OSLog.default, type: .info)
+
         // url
         var request = URLRequest(url: url)
         
@@ -75,6 +78,9 @@ class APIClient {
     }
     
     class func sharedInstance() -> APIClient {
+        os_log("sharedInstance function in APIClient is called", log: OSLog.default, type: .info)
+
+        
         struct singleton {
             static let sharedInstance = APIClient()
         }
