@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupTableViewCell: UITableViewCell {
+class GroupTableViewCell: UITableViewCell, GroupTableViewCellDelegate{
 
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var memberNumberLabel: UILabel!
@@ -16,6 +16,15 @@ class GroupTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = .none
+
     }
     
+    func displayGroupName(name: String) {
+        groupNameLabel.text = name
+    }
+    
+    func displayGroupMembersNumber(number: String) {
+        memberNumberLabel.text = number
+    }
 }

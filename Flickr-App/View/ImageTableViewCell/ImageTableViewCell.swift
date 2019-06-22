@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import SDWebImage
 
-class ImageTableViewCell: UITableViewCell {
+class ImageTableViewCell: UITableViewCell, ImageTableViewCellDelegate {
 
     @IBOutlet weak var flickerImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = .none
     }
+    
+    func displayImage(url: String) {
+        flickerImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: url))
+    }
+    
     
 }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension FlickrViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Functions
     
@@ -26,28 +26,39 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: Delegate Functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if let presenter = presenter {
+            if selectedTab == "images" {
+                return presenter.getImagesCount()
+            }
+            else {
+                return presenter.getGroupsCount()
+            }
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if segmentedControl.selectedSegmentIndex == 0 { // ImageTableViewCell
+        if selectedTab == "images" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
-            cell.selectionStyle = .none
-            //            cell.flickerImageView =
-            
+            presenter.configureImageCell(cell: cell, index: indexPath.row)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTableViewCell") as! GroupTableViewCell
+            presenter.configureGroupCell(cell: cell, index: indexPath.row)
             return cell
         }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTableViewCell") as! GroupTableViewCell
-        cell.selectionStyle = .none
-        cell.groupNameLabel.text = "Flickrs"
-        cell.memberNumberLabel.text = "20"
-        
-        return cell
     }
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        if selectedTab == "images" {
+            return 200.0
+        } else {
+            return 100.0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.view.endEditing(true)
     }
     
 }
