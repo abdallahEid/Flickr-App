@@ -52,6 +52,8 @@ class FlickrViewController: UIViewController {
         default:
             break
         }
+        searchBar.text = ""
+        self.view.endEditing(true)
         tableView.reloadData()
     }
 

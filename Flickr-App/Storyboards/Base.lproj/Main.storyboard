@@ -33,7 +33,7 @@
                                     <action selector="segmentedControlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="PzM-p8-xeM"/>
                                 </connections>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="325-7Q-GKt">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for something" translatesAutoresizingMaskIntoConstraints="NO" id="325-7Q-GKt">
                                 <rect key="frame" x="0.0" y="72" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>

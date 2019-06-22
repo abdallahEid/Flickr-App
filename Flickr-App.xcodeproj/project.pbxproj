@@ -130,7 +130,7 @@
 			children = (
 				BB9583D322BC4110009F16F1 /* AppDelegate.swift */,
 				BB9583FC22BC4430009F16F1 /* Model */,
-				BB9583FD22BC443C009F16F1 /* DataSource */,
+				BB9583FD22BC443C009F16F1 /* Services */,
 				BB9583FB22BC4429009F16F1 /* Storyboards */,
 				BB9583FA22BC4421009F16F1 /* View */,
 				BB9583F922BC440F009F16F1 /* ViewController */,
@@ -214,14 +214,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BB9583FD22BC443C009F16F1 /* DataSource */ = {
+		BB9583FD22BC443C009F16F1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				BB95841222BC6FBC009F16F1 /* APIClient.swift */,
 				BB95840E22BC688F009F16F1 /* ImagesServices.swift */,
 				BB95841022BC689C009F16F1 /* GroupServices.swift */,
 			);
-			path = DataSource;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		BB95840422BC5DA8009F16F1 /* ImageTableViewCell */ = {
