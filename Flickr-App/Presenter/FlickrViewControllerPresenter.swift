@@ -29,6 +29,7 @@ protocol GroupTableViewCellDelegate {
 
 class FlickrViewControllerPresenter {
     
+    // MARK: Properties
     private weak var delegate: FlickrViewDelegate?
     private let imageServices = ImagesServices()
     private let groupServices = GroupServices()
@@ -36,10 +37,12 @@ class FlickrViewControllerPresenter {
     private var images = [Image]()
     private var groups = [Group]()
     
+    // MARK: Functions
     init(delegate: FlickrViewDelegate) {
         self.delegate = delegate
     }
     
+    // MARK: Functions For Images
     func getImages(text: String, page: Int){
         os_log("getImages function in FlickrControllerViewPresenter is called", log: OSLog.default, type: .info)
     
@@ -74,6 +77,13 @@ class FlickrViewControllerPresenter {
         return images.count
     }
     
+    func configureImageCell(cell: ImageTableViewCellDelegate, index: Int){
+        os_log("configureImageCell function in FlickrControllerViewPresenter is called", log: OSLog.default, type: .info)
+        let url = ImagesServices.Endpoints.getImage(images[index])
+        cell.displayImage(url: url.stringValue)
+    }
+    
+    // MARK: Functions For Groups
     func getGroups(text: String, page: Int){
         os_log("getGroups function in FlickrControllerViewPresenter is called", log: OSLog.default, type: .info)
         delegate?.showIndicator()
@@ -105,12 +115,6 @@ class FlickrViewControllerPresenter {
     func getGroupsCount() -> Int{
         os_log("getGroupsCount function in FlickrControllerViewPresenter is called", log: OSLog.default, type: .info)
         return groups.count
-    }
-    
-    func configureImageCell(cell: ImageTableViewCellDelegate, index: Int){
-        os_log("configureImageCell function in FlickrControllerViewPresenter is called", log: OSLog.default, type: .info)
-        let url = ImagesServices.Endpoints.getImage(images[index])
-        cell.displayImage(url: url.stringValue)
     }
     
     func configureGroupCell(cell: GroupTableViewCellDelegate, index: Int){
