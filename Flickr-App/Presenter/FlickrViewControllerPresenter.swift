@@ -43,7 +43,7 @@ class FlickrViewControllerPresenter {
     }
     
     // MARK: Functions For Images
-    func getImages(text: String, page: Int){
+    func getImages(text: String, page: Int, completion: @escaping () -> ()){
         os_log("getImages function in FlickrControllerViewPresenter is called", log: OSLog.default, type: .info)
     
         delegate?.showIndicator()
@@ -53,6 +53,7 @@ class FlickrViewControllerPresenter {
                 if let error = error {
                     self.delegate?.showError(error: error.localizedDescription)
                 }
+                completion()
                 return
             }
             
@@ -67,7 +68,7 @@ class FlickrViewControllerPresenter {
                 self.images += images
             }
             self.delegate?.fetchingDataSuccessfully()
-            
+            completion() // this is for unit test
         }
     }
     
@@ -84,7 +85,7 @@ class FlickrViewControllerPresenter {
     }
     
     // MARK: Functions For Groups
-    func getGroups(text: String, page: Int){
+    func getGroups(text: String, page: Int, completion: @escaping () -> ()){
         os_log("getGroups function in FlickrControllerViewPresenter is called", log: OSLog.default, type: .info)
         delegate?.showIndicator()
         groupServices.searchGroups(text: text, page: page) { (groups, error) in
@@ -93,6 +94,7 @@ class FlickrViewControllerPresenter {
                 if let error = error {
                     self.delegate?.showError(error: error.localizedDescription)
                 }
+                completion()
                 return
             }
             
@@ -108,7 +110,7 @@ class FlickrViewControllerPresenter {
                 self.groups += groups
             }
             self.delegate?.fetchingDataSuccessfully()
-            
+            completion()
         }
     }
     

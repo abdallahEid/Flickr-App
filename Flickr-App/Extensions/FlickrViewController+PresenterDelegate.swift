@@ -28,7 +28,9 @@ extension FlickrViewController: FlickrViewDelegate{
         os_log("fetchingDataSuccessfully function in FlickrViewController+PresenterDelegate extension is called", log: OSLog.default, type: .info)
         
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            if let tableView = self.tableView {
+                tableView.reloadData()
+            }
         }
     }
     
@@ -42,13 +44,17 @@ extension FlickrViewController: FlickrViewDelegate{
     
     func hideResultLabel() {
         DispatchQueue.main.async {
-            self.noResultsLabel.isHidden = true
+            if let label = self.noResultsLabel {
+                label.isHidden = true
+            }
         }
     }
     
     func showResultLabel() {
         DispatchQueue.main.async {
-            self.noResultsLabel.isHidden = false
+            if let label = self.noResultsLabel {
+                label.isHidden = false
+            }
         }
     }
     

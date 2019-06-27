@@ -11,17 +11,66 @@ import XCTest
 
 class Flickr_AppTests: XCTestCase {
 
+    var presenter: FlickrViewControllerPresenter!
+    var viewController: FlickrViewController!
+    var images = [Image]()
+    var groups = [Group]()
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewController = FlickrViewController()
+        presenter = FlickrViewControllerPresenter(delegate: viewController)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    }
+    
+    func testGetImages(){
+        
+        let text = "farm"
+        let page = 1
+        let exp1 = expectation(description: "getImages from API")
+        let exp2 = expectation(description: "getImages from presenter")
+        
+        ImagesServices().searchImages(text: text, page: page) { (images, error) in
+            if let images = images {
+                self.images = images
+                exp1.fulfill()
+            }
+        }
+        wait(for: [exp1], timeout: 5.0)
+        
+        presenter.getImages(text: text, page: page, completion: {
+            XCTAssert(self.presenter.getImagesCount() == self.images.count, "Error in calling getImages from presenter")
+            exp2.fulfill()
+        })
+        wait(for: [exp2], timeout: 5.0)
+    }
+    
+    func testGetGroups(){
+        
+        let text = "farm"
+        let page = 1
+        let exp1 = expectation(description: "getGroups from API")
+        let exp2 = expectation(description: "getGroups from presenter")
+        
+        GroupServices().searchGroups(text: text, page: page) { (groups, error) in
+            if let groups = groups {
+                self.groups = groups
+                exp1.fulfill()
+            }
+        }
+        wait(for: [exp1], timeout: 5.0)
+        
+        presenter.getGroups(text: text, page: page, completion: {
+            XCTAssert(self.presenter.getGroupsCount() == self.groups.count, "Error in calling getGroups from presenter")
+            exp2.fulfill()
+        })
+        wait(for: [exp2], timeout: 5.0)
     }
 
     func testPerformanceExample() {
